@@ -5,15 +5,18 @@
 - What's more, I tried to access all the imputs elements in oreder to get the values from the users. After that, I created a new function and inside I created a new object, which contains the values from the user. I pushed the new object into the big arrays of object, and then, I created the HTML for that to show the list of the songs with the new one.
 - I could mange to store the user's imput into the local storage
 
-
 # If you had more time, what area of your project would you improve?
 - I would improve the area of local storage. I did it but I still do not really understand very well how it works.
 - On top of that, I do really need to improve my understanding on what to use according to what the goal is and how to do that.That was my weakest point during this project. Probably, I need to watch the videos more often.
 
 # Did you learn anything new while working on this project?
-
+- I learned how to debug by myself
 # What was the most challenging part for you?
+- It is hard for me to sort all of the lists by using the score
 
 # Would you like a new explanation about a specific topic?
+- About filtering the list by its names 
 
 # Any other comments?
+- I know it is graduated but the time was not long enogth, also I am really slow
+- Could you give me a hand to improve my way of debugging

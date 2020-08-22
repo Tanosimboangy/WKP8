@@ -20,7 +20,7 @@ function showSong() {
                     <li><small>Length: ${song.length}</small></li>
                 </ul>
             </li>
-            <li><h2>SCORE: ${song.id}</h2></li>
+            <li><h2 class="score">SCORE: 0</h2></li>
             <li><button value="${song.id}" class="add_score">+1</button></li>
             <li>
                 <button value="${song.id}" class="delete" aria-label="delete song ${song.title}">
@@ -74,15 +74,15 @@ const deleteSong = idDelete => {
     console.log(songs);
     showList.dispatchEvent(new CustomEvent('songListUpdated'));
 }
+
 // Incrementing the score any time this is ckicked
-const score = () => {
+// const score = () => {
 
-};
+// };
 
 
-// const showList = document.querySelector('.show_list');
 const filter = document.querySelector('.filter');
-
+filter.addEventListener
 
 // Filter the songs by its title
 const searchSongFilter = () => {};
@@ -93,7 +93,9 @@ const searchSongFilterStyle = () => {};
 
 
 // Reset the fitler after filter the songs
-const resetFilter = () => {};
+const resetFilter = () => {
+
+};
 
 
 const mirrorToLocalStorage = () => {
