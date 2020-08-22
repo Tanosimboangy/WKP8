@@ -20,7 +20,7 @@ function showSong() {
                     <li><small>Length: ${song.length}</small></li>
                 </ul>
             </li>
-            <li><h2>SCORE: </h2></li>
+            <li><h2>SCORE: ${song.id}</h2></li>
             <li><button value="${song.id}" class="add_score">+1</button></li>
             <li>
                 <button value="${song.id}" class="delete" aria-label="delete song ${song.title}">
@@ -59,18 +59,25 @@ const addSong = (e) => {
 
 // Handle with the add click button from the form
 const handleClick = e => {
+    // const addingScore = e.target.closest(".add_score");
+    // if ()
+
     const deleteBtn = e.target.closest(".delete");
     if (deleteBtn) {
         const id = Number(deleteBtn.value);
         deleteSong(id);
     }
 };
+// Filtering the items by removing the one which has the matched id 
 const deleteSong = idDelete => {
     songs = songs.filter(song => song.id !== idDelete);
     console.log(songs);
     showList.dispatchEvent(new CustomEvent('songListUpdated'));
 }
+// Incrementing the score any time this is ckicked
+const score = () => {
 
+};
 
 
 // const showList = document.querySelector('.show_list');
@@ -89,38 +96,24 @@ const searchSongFilterStyle = () => {};
 const resetFilter = () => {};
 
 
-// Incrementing the score any time this is ckicked
-const score = () => {};
-
-
-// const mirrorToLocalStorage = () => {
-//     console.info('saving items into localstorage');
-//     localStorage.setItem('songs', JSON.stringify(songs));
-//     showList.dispatchEvent(new CustomEvent('songListUpdated'));
-// };
-// const restoreFromLocalStorage = () => {
-//     const songLists = JSON.parse(localStorage.getItem('songs'));
-//     if(!songLists) {
-//         songs = [];
-//     } else {
-//         songs = songLists;
-//     }
-//     showList.dispatchEvent(new CustomEvent('songListUpdated'));
-// };
-
+const mirrorToLocalStorage = () => {
+    localStorage.setItem('songs', JSON.stringify(songs));
+    showList.dispatchEvent(new CustomEvent('songListUpdated'));
+};
+const restoreFromLocalStorage = () => {
+    const songLists = JSON.parse(localStorage.getItem('songs'));
+    console.log("hello", songLists);
+    if(!songLists) {
+        songs = [];
+    } else {
+        songs = songLists;
+    }
+};
 
 form.addEventListener('submit', addSong);
 showList.addEventListener('songListUpdated', showSong);
 window.addEventListener('DOMContentLoaded', showSong);
 showList.addEventListener('click', handleClick);
-// showList.dispatchEvent(new CustomEvent('songListUpdated', mirrorToLocalStorage));
-// restoreFromLocalStorage();
+showList.addEventListener('songListUpdated', mirrorToLocalStorage);
+restoreFromLocalStorage();
 
-
-// tableList.addEventListener('listUpdated', showBooks);
-// tableList.addEventListener("listUpdated", updateLocalStorage);
-// // just calling the function instead of doing this
-// // showBooks();
-// window.addEventListener('DOMContentLoaded', showBooks);
-// tableList.addEventListener("click", handleClick);
-// initLocalStorage();

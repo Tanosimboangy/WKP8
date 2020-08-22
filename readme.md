@@ -1,45 +1,19 @@
-# WKP8
+# In a few sentences, explain the structure of your project. 
+1_ First of all, I did not manage to complete this project untill the end. These are the steps I followed while working on this project :
+- For starting, as usual , I crated the necessary HTML and styling it.
+- I began my work by using the fundamental approach to map through the arrays of object, followed by crating a new HTML and pushing the values from the map into that HTML, so that we can show the lists of the songs for the users. All of these steps were done inside of a function.
+- What's more, I tried to access all the imputs elements in oreder to get the values from the users. After that, I created a new function and inside I created a new object, which contains the values from the user. I pushed the new object into the big arrays of object, and then, I created the HTML for that to show the list of the songs with the new one.
+- I could mange to store the user's imput into the local storage
 
-Hello team! Here's the weekend project 8.
 
-We're going to build a hit parade.
+# If you had more time, what area of your project would you improve?
+- I would improve the area of local storage. I did it but I still do not really understand very well how it works.
+- On top of that, I do really need to improve my understanding on what to use according to what the goal is and how to do that.That was my weakest point during this project. Probably, I need to watch the videos more often.
 
-![./assets/hit-parade.jpg](./assets/hit-parade.jpg)
+# Did you learn anything new while working on this project?
 
--   That's a list of songs, sorted from the most popular to the least popular.
--   When we add a new song to the hit parade, the song score is set to zero.
--   The song list is always sorted from the highest score song to the lowest.
--   We can increment the score by clicking the +1 button.
--   We wan delete a song from the list by clicking the bin icon.
--   We can filter the list, by searching for a song title
--   We can filter the list, by selecting a song style in the select.
--   When we click the _reset filters_ button, the filter form is reset, and the list comes back to normal.
--   The data will be saved on the localstorage (except when you filter data)
+# What was the most challenging part for you?
 
-### Tips :
+# Would you like a new explanation about a specific topic?
 
--   Focus on the features first, and if you have some time left, try to replicate this design.
--   Start by choosing the song data structure, and create a few of them in the code.
--   Focus on your basic app functionality first, and then try to save the state of your app to _Local Storage_.
-
-Also, please update this readme with the answer to those questions before submitting the project.
-
-### Student report :
-
-1. In a few sentences, explain the structure of your project.
-
-2. If you had more time, what area of your project would you improve?
-
-3. Did you learn anything new while working on this project?
-
-4. What was the most challenging part for you?
-
-5. Would you like a new explanation about a specific topic?
-
-6. Any other comments?
-
-Fork this project and then clone your fork to your computer.
-
-I will download everybody's fork on **_Sunday at 5pm_**.
-
-Good luck everyone! 🔥
+# Any other comments?
