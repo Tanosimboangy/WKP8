@@ -3,7 +3,7 @@ let songs = [];
 const form = document.querySelector('form');
 const showList = document.querySelector('.show_list');
 
-const showSong = () => {
+function showSong() {
     const html = songs.map(song => {
         return `
         <ul>
@@ -21,7 +21,7 @@ const showSong = () => {
                 </ul>
             </li>
             <li><h2>SCORE: </h2></li>
-            <li><button class="add_score">+1</button></li>
+            <li><button value="${song.id}" class="add_score">+1</button></li>
             <li>
                 <button value="${song.id}" class="delete" aria-label="delete song ${song.title}">
                     <img src="./assets/img/trash.svg" alt="delete the ${song.id}">
@@ -56,44 +56,71 @@ const addSong = (e) => {
     formitem.reset();
 };
 
-// const showList = document.querySelector('.show_list');
-const filter = document.querySelector('.filter');
 
 // Handle with the add click button from the form
-const handleClick = () => {
-    const deleteBtn = e.target.matches("button.delete");
+const handleClick = e => {
+    const deleteBtn = e.target.closest(".delete");
     if (deleteBtn) {
         const id = Number(deleteBtn.value);
         deleteSong(id);
-        console.log(id);
     }
 };
-
 const deleteSong = idDelete => {
     songs = songs.filter(song => song.id !== idDelete);
-    console.log(idDelete);
+    console.log(songs);
     showList.dispatchEvent(new CustomEvent('songListUpdated'));
 }
+
+
+
+// const showList = document.querySelector('.show_list');
+const filter = document.querySelector('.filter');
+
 
 // Filter the songs by its title
 const searchSongFilter = () => {};
 
+
 // Filter the songs by using its style
 const searchSongFilterStyle = () => {};
+
 
 // Reset the fitler after filter the songs
 const resetFilter = () => {};
 
+
 // Incrementing the score any time this is ckicked
 const score = () => {};
 
-// Remove one list of song when this is clicked
-const deletebutton = () => {};
 
-const intoLocalStorage = () => {};
+// const mirrorToLocalStorage = () => {
+//     console.info('saving items into localstorage');
+//     localStorage.setItem('songs', JSON.stringify(songs));
+//     showList.dispatchEvent(new CustomEvent('songListUpdated'));
+// };
+// const restoreFromLocalStorage = () => {
+//     const songLists = JSON.parse(localStorage.getItem('songs'));
+//     if(!songLists) {
+//         songs = [];
+//     } else {
+//         songs = songLists;
+//     }
+//     showList.dispatchEvent(new CustomEvent('songListUpdated'));
+// };
 
-const updataLocalStorage = (e) => {};
 
 form.addEventListener('submit', addSong);
-showList.dispatchEvent(new CustomEvent('songListUpdated', showSong));
-showList.dispatchEvent(new CustomEvent('songListUpdated', handleClick));
+showList.addEventListener('songListUpdated', showSong);
+window.addEventListener('DOMContentLoaded', showSong);
+showList.addEventListener('click', handleClick);
+// showList.dispatchEvent(new CustomEvent('songListUpdated', mirrorToLocalStorage));
+// restoreFromLocalStorage();
+
+
+// tableList.addEventListener('listUpdated', showBooks);
+// tableList.addEventListener("listUpdated", updateLocalStorage);
+// // just calling the function instead of doing this
+// // showBooks();
+// window.addEventListener('DOMContentLoaded', showBooks);
+// tableList.addEventListener("click", handleClick);
+// initLocalStorage();
