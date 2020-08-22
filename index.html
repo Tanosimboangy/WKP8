@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Week End Project 8</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Hit parade</h1>
+    </header>
+    <main>
+        <section class="add_list">
+            <form>
+                <h2>Add a song</h2>
+                <fieldset>
+                    <label for="title">Song title</label>
+                    <input type="text" name="title" id="title" placeholder="Title" required>
+                </fieldset>
+                <fieldset>
+                    <label for="artist_name">Artist name</label>
+                    <input type="text" name="name" id="artist_name" placeholder="Artist name" required>
+                </fieldset>
+                <fieldset>
+                    <label for="song_style">Song sytle</label>
+                    <select name="style" id="song_style" required>
+                        <option value="Classic">Classic</option>
+                        <option value="Kilalaka">Kilalaka</option>
+                        <option value="Basesa">Basesa</option>
+                        <option value="Rap">Rap</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Malesa">Malesa</option>
+                        <option value="Slow">Slow</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="song_lenth">Song length</label>
+                    <input type="text" name="length" id="song_lenth" placeholder="Length" required>
+                </fieldset>
+                <fieldset>
+                    <label for="artist_picture">Artist picture</label>
+                    <input type="text" name="picture" id="artist_picture" placeholder="Url of an artist pic" required>
+                </fieldset>
+                <fieldset>
+                    <button type="submit" class="add" >Add</button>
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <div class="filter">
+                <fieldset>
+                    <label for="filter_title">Search a song</label>
+                    <input type="text" id="filter_title" placeholder="Enter a song title....">
+                </fieldset>
+                <fieldset>
+                    <label for="filter_style">Select a style</label>
+                    <input type="text" id="filter_style" placeholder="All styles....">
+                </fieldset>
+                <fieldset>
+                    <button class="reset_filter">RESET FILTERS</button>
+                </fieldset>
+            </div>
+            <div class="show_list">
+                
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
