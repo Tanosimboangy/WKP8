@@ -7,7 +7,7 @@ function showSong() {
     const html = songs.map(song => {
         return `
         <ul>
-            <li>${song.picture}</li>
+            <li><img src="./assets/img/download (2).jpg" alt="westlife"></li>
             <li>
                 <ul>
                     <li><h2>Title: ${song.title}</h2></li>
@@ -70,38 +70,59 @@ const handleClick = e => {
 };
 // Filtering the items by removing the one which has the matched id 
 const deleteSong = idDelete => {
+    // Matching the id of the id to be deleted
     songs = songs.filter(song => song.id !== idDelete);
     console.log(songs);
     showList.dispatchEvent(new CustomEvent('songListUpdated'));
 }
 
+
 // Incrementing the score any time this is ckicked
-// const score = () => {
+const score = (e) => {
+    console.log(e);
+    const addingScore = e.target.closest(".add_score");
+    console.log(addingScore);
+    addingScore.addEventListener("click", increment);
+    increment(id);
+    console.log(increment);
+    showList.dispatchEvent(new CustomEvent('songListUpdated'));
+};
 
-// };
+// Increment the number of the score
+const increment = e => {
+    const score = e.target.closest("score");
+    if (score) {
+        const value = score.value ++;
+        console.log(value);
+    }
+    showList.dispatchEvent(new CustomEvent('songListUpdated'));
+}
 
 
+// Grabbing these necessary elements
 const filter = document.querySelector('.filter');
-filter.addEventListener
+const resetBtnFilter = document.querySelector('.reset_filter');
 
 // Filter the songs by its title
-const searchSongFilter = () => {};
-
+const searchSongFilterTitle = () => {};
 
 // Filter the songs by using its style
 const searchSongFilterStyle = () => {};
 
-
 // Reset the fitler after filter the songs
 const resetFilter = () => {
-
+    console.log("I do not like being called with that name");
+    // showList.dispatchEvent(new CustomEvent('songListUpdated'));
+    showSong();
 };
+resetBtnFilter.addEventListener('click', resetFilter);
 
-
+// Mirror the data to the local storage
 const mirrorToLocalStorage = () => {
     localStorage.setItem('songs', JSON.stringify(songs));
     showList.dispatchEvent(new CustomEvent('songListUpdated'));
 };
+// Save the data into the local storage
 const restoreFromLocalStorage = () => {
     const songLists = JSON.parse(localStorage.getItem('songs'));
     console.log("hello", songLists);
