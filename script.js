@@ -59,8 +59,13 @@ const addSong = (e) => {
 
 // Handle with the add click button from the form
 const handleClick = e => {
-    // const addingScore = e.target.closest(".add_score");
-    // if ()
+    const scoreValue = e.target.closest(".score");
+    const addingScore = e.target.closest(".add_score");
+    scoreValue.value = +1;
+    if (addingScore) {
+        const id = Number(addingScore.value);
+        addingScoreSong(id);
+    }
 
     const deleteBtn = e.target.closest(".delete");
     if (deleteBtn) {
@@ -68,6 +73,17 @@ const handleClick = e => {
         deleteSong(id);
     }
 };
+
+// addingScoreSong.addEventListener('click', addingScoreSong);
+
+const addingScoreSong = idAddSong => {
+    // songs = songs.filter(song => song.id !== idAddSong);
+    console.log('I have got it');
+    // if (id = idAddSong ) {
+
+    // }
+}
+
 // Filtering the items by removing the one which has the matched id 
 const deleteSong = idDelete => {
     // Matching the id of the id to be deleted
@@ -78,33 +94,46 @@ const deleteSong = idDelete => {
 
 
 // Incrementing the score any time this is ckicked
-const score = (e) => {
-    console.log(e);
-    const addingScore = e.target.closest(".add_score");
-    console.log(addingScore);
-    addingScore.addEventListener("click", increment);
-    increment(id);
-    console.log(increment);
-    showList.dispatchEvent(new CustomEvent('songListUpdated'));
-};
+// const score = (e) => {
+//     const addingScore = e.target.closest(".add_score");
+//     increment(id);
+//     showList.dispatchEvent(new CustomEvent('songListUpdated'));
+//     console.log(e);
+//     addingScore.addEventListener("click", increment);
+// };
 
-// Increment the number of the score
-const increment = e => {
-    const score = e.target.closest("score");
-    if (score) {
-        const value = score.value ++;
-        console.log(value);
-    }
-    showList.dispatchEvent(new CustomEvent('songListUpdated'));
-}
+
+// // Increment the number of the score
+// const increment = e => {
+//     const score = e.target.closest("score");
+//     if (score) {
+//         const value = score.value +1;
+//         console.log(value);
+//     }
+//     showList.dispatchEvent(new CustomEvent('songListUpdated'));
+//     score();
+// }
+
+
+
+
 
 
 // Grabbing these necessary elements
-const filter = document.querySelector('.filter');
+const inputFilterTitle = document.querySelector('.filter_title');
 const resetBtnFilter = document.querySelector('.reset_filter');
 
 // Filter the songs by its title
-const searchSongFilterTitle = () => {};
+const searchSongFilterTitle = () => {
+    const filterdata = songs.filter(song => song.title.toLowercase().includes(inputFilterTitle.toLowercase()));
+    showSong(filterdata);
+    showList.dispatchEvent(new CustomEvent('songListUpdated'));
+    console.log("I have got to go");
+};
+
+
+
+
 
 // Filter the songs by using its style
 const searchSongFilterStyle = () => {};
@@ -139,4 +168,3 @@ window.addEventListener('DOMContentLoaded', showSong);
 showList.addEventListener('click', handleClick);
 showList.addEventListener('songListUpdated', mirrorToLocalStorage);
 restoreFromLocalStorage();
-
